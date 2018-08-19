@@ -1,11 +1,13 @@
 # Galvanize Dinosaurs - Listings
 
-![alt text](http://./passedTest)
 #### Deployed Link
+http://dino1.surge.sh/
 
 #### Framework of choice
+Vuejs
 
 # dino1
+![alt text](http://./passedTest)
 
 > Refactored dino1
 

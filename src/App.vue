@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     postJob: function (title,pay,description) {
-      this.jobs.push({'id': this.jobs.length+1, 'title': title, 'pay': pay, 'description': description})
+      this.jobs.unshift({'id': this.jobs.length+1, 'title': title, 'pay': pay, 'description': description})
     }
   },
   mounted() {
