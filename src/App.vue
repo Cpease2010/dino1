@@ -1,3 +1,4 @@
+
 <template>
   <div id="app">
     <dinoHeader></dinoHeader>
@@ -5,12 +6,22 @@
 </template>
 
 <script>
-import dinoHeader from './components/dinoHeader'
-
+import dinoHeader from './components/dinoHeader.vue'
+import Vue from 'vue'
+import VueResource from 'vue-resource'
+Vue.use(VueResource)
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    dinoHeader
+  },
+  data() {
+    return {
+      jobs: []
+    }
+  },
+  mounted() {
+    this.$http.get('./listings.json').then(result => this.jobs = result)
   }
 }
 </script>
