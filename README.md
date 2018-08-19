@@ -1,4 +1,5 @@
 # Galvanize Dinosaurs - Listings
+![Screenshot](passedTest.png)
 
 #### Deployed Link
 http://dino1.surge.sh/
