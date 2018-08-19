@@ -1,6 +1,5 @@
 # Galvanize Dinosaurs - Listings
-
-![alt text](http://./passedTest)
+![alt text](http://./passedTest.png)
 #### Deployed Link
 
 #### Framework of choice
