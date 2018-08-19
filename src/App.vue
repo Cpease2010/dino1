@@ -12,7 +12,7 @@
           :job='job' />
         </ul>
       </section>
-      <jobForm/>
+      <jobForm v-on:addJob="postJob" />
     </div>
   </main>
 </template>
@@ -33,6 +33,11 @@ export default {
       jobs: [],
       apiURL: '../static/listings.json'
     };
+  },
+  methods: {
+    postJob: function (title,pay,description) {
+      this.jobs.push({'id': this.jobs.length+1, 'title': title, 'pay': pay, 'description': description})
+    }
   },
   mounted() {
     fetch(this.apiURL)

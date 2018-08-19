@@ -8,7 +8,7 @@
             <input v-model="pay" type="text" name="pay">
             <label for="description">Description</label>
             <textarea v-model="description" name="description" rows="8" cols="40"></textarea>
-            <input  type="submit" name="submit" value="Submit" />
+            <input v-on:click.prevent="addJob" type="submit" name="submit" value="Submit" />
         </form>
     </aside>
 </template>
@@ -22,6 +22,11 @@ export default {
             description: ''
         }
     },
+    methods:{
+        addJob: function () {
+            this.$emit('addJob', this.title, this.pay, this.description)
+        }
+    }
 }
 </script>
 
