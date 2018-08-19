@@ -1,31 +1,47 @@
 
 <template>
-  <div id="app">
-    <dinoHeader></dinoHeader>
-  </div>
+  <main>
+    <dinoHeader/>
+    <div id="main">
+      <section>
+        <h2>Job Listings</h2>
+        <ul id="job-listings">
+          <jobListing 
+          v-for="job in jobs" 
+          :key='job.id' 
+          :job='job' />
+        </ul>
+      </section>
+      <jobForm/>
+    </div>
+  </main>
 </template>
 
 <script>
-import dinoHeader from './components/dinoHeader.vue'
-import Vue from 'vue'
-import VueResource from 'vue-resource'
-Vue.use(VueResource)
+import dinoHeader from './components/dinoHeader.vue';
+import jobListing from './components/jobListing.vue';
+import jobForm from './components/jobForm.vue';
 export default {
   name: 'App',
   components: {
-    dinoHeader
+    dinoHeader,
+    jobListing,
+    jobForm
   },
   data() {
     return {
-      jobs: []
-    }
+      jobs: [],
+      apiURL: '../static/listings.json'
+    };
   },
   mounted() {
-    this.$http.get('./listings.json').then(result => this.jobs = result)
+    fetch(this.apiURL)
+      .then(result => result.json())
+      .then(result => this.jobs = result);
   }
-}
+};
 </script>
-
+  
 <style>
 html {
   margin: 0;
@@ -68,17 +84,17 @@ header h1 {
 
 /* Main */
 
-main {
+#main {
   grid-row: 2/3;
   display: grid;
   grid-template-columns: 5% 42.5% 5% 42.5% 5%;
 }
 
-main section {
+#main section {
   grid-column: 2/3;
 }
 
-main section h2 {
+#main section h2 {
   margin: 0;
   color: #61CCB1;
 }

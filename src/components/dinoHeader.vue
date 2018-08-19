@@ -1,7 +1,7 @@
 <template>
   <header>
       <img src="../assets/g-dino.png"/>
-    </header>
+  </header>
 </template>
 
 <script>
